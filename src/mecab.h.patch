@@ -1,0 +1,12 @@
+--- mecab-0.996/src/mecab.h	2013-02-18 02:21:55.000000000 +0900
++++ mecab-0.996-new/src/mecab.h	2016-10-25 00:33:30.941979127 +0900
+@@ -753,6 +753,9 @@
+                                                     const char *end,
+                                                     mecab_lattice_t *lattice);
+ 
++  /* node interface */
++  MECAB_DLL_EXTERN char         *mecab_node_t_surface_get(mecab_node_t *node);
++
+   /* static functions */
+   MECAB_DLL_EXTERN int           mecab_do(int argc, char **argv);
+   MECAB_DLL_EXTERN int           mecab_dict_index(int argc, char **argv);

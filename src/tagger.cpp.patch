@@ -1,0 +1,10 @@
+--- mecab-0.996/src/tagger.cpp	2013-02-18 01:55:30.000000000 +0900
++++ mecab-0.996-new/src/tagger.cpp	2016-10-25 00:26:46.613979127 +0900
+@@ -738,6 +738,7 @@
+       allocator_(new Allocator<Node, Path>) {
+   begin_nodes_.reserve(MIN_INPUT_BUFFER_SIZE);
+   end_nodes_.reserve(MIN_INPUT_BUFFER_SIZE);
++  request_type_ |= MECAB_ALLOCATE_SENTENCE;
+ }
+ 
+ LatticeImpl::~LatticeImpl() {}

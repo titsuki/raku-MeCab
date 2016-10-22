@@ -1,0 +1,13 @@
+--- mecab-0.996/src/libmecab.cpp	2013-02-18 02:22:51.000000000 +0900
++++ mecab-0.996-new/src/libmecab.cpp	2016-10-25 00:28:03.461979127 +0900
+@@ -494,3 +494,10 @@
+           begin, end,
+           reinterpret_cast<MeCab::Lattice *>(lattice)));
+ }
++
++char* mecab_node_t_surface_get(mecab_node_t *n) {
++  char *s = new char [n->length + 1];
++  memcpy (s, n->surface, n->length);
++  s[n->length] = '\0';
++  return s;
++}

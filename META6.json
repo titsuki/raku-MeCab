@@ -2,7 +2,9 @@
   "authors" : [
     "titsuki"
   ],
-  "build-depends" : [ ],
+  "build-depends" : [
+    "LibraryMake"
+  ],
   "depends" : [ ],
   "description" : "A Perl 6 bindings for MeCab ( http://taku910.github.io/mecab/ )",
   "name" : "MeCab",

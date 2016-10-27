@@ -2,19 +2,28 @@ use LibraryMake;
 
 class Build {
     method build($workdir) {
+        if $*DISTRO.is-win {
+            die "Sorry, this binding doesn't support windows";
+        }
         my $srcdir = "$workdir/src";
         my %vars = get-vars($workdir);
         %vars<libmecab> = $*VM.platform-library-name('libmecab'.IO);
         mkdir "$workdir/resources" unless "$workdir/resources".IO.e;
         mkdir "$workdir/resources/libraries" unless "$workdir/resources/libraries".IO.e;
-        
-        my $prefix = "/usr/local";
+
+        my $HOME = qq:x/echo \$HOME/.subst(/\s*/,"",:g);
+        my $prefix = "$HOME/.p6mecab";
         self!install-mecab($workdir, $prefix);
         self!install-mecab-ipadic($workdir, $prefix);
         if "$workdir/resources/libraries/libmecab.so".IO.f {
             run 'rm', '-f', "$workdir/resources/libraries/libmecab.so";
         }
-        run 'ln', '-s', "$prefix/lib/libmecab.so", "$workdir/resources/libraries/libmecab.so"
+        if $*DISTRO.name eq 'macosx' {
+            run 'ln', '-s', "$prefix/lib/libmecab.dylib", "$workdir/resources/libraries/libmecab.dylib"
+        } else {
+            # linux
+            run 'ln', '-s', "$prefix/lib/libmecab.so", "$workdir/resources/libraries/libmecab.so"
+        }
     }
 
     method !install-mecab($workdir, $prefix) {
@@ -44,6 +53,8 @@ class Build {
         chdir("mecab-0.996");
         shell("./configure --with-charset=utf8 --prefix=$prefix");
         shell("make");
+        shell("make install");
+        run 'echo', "$prefix/lib", '>', '/etc/ld.so.conf.d/mecab.conf';
         chdir($goback);
     }
     
@@ -68,6 +79,7 @@ class Build {
         chdir("mecab-ipadic-2.7.0-20070801");
         shell("./configure --with-charset=utf8 --prefix=$prefix --with-mecab-config=$prefix/bin/mecab-config");
         shell("make");
+        shell("make install");
         chdir($goback);
     }
     

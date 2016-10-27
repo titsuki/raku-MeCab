@@ -4,7 +4,7 @@ use NativeCall;
 use MeCab;
 use MeCab::Tagger;
 
-lives-ok { my $mecab-tagger = MeCab::Tagger.new('-C'); MeCab::destroy($mecab-tagger); }
+lives-ok { my $mecab-tagger = MeCab::Tagger.new('-C'); }
 
 {
     my Str $text = "すもももももももものうち。";

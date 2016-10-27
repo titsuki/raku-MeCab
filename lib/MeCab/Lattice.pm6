@@ -7,6 +7,8 @@ use MeCab::Loadable;
 
 my constant $library = %?RESOURCES<libraries/mecab>.Str;
 
+my sub mecab_lattice_destroy(MeCab::Lattice) is native($library) { * }
+my sub mecab_lattice_new() returns MeCab::Lattice is native($library) { * }
 my sub mecab_lattice_clear(MeCab::Lattice) is native($library) { * }
 my sub mecab_lattice_is_available(MeCab::Lattice) returns int32 is native($library) { * }
 my sub mecab_lattice_get_bos_node(MeCab::Lattice) returns MeCab::Node is native($library) { * }
@@ -41,6 +43,10 @@ my sub mecab_lattice_set_boundary_constraint(MeCab::Lattice, size_t, int32) is n
 my sub mecab_lattice_set_feature_constraint(MeCab::Lattice, size_t, size_t, Str) is native($library) { * }
 my sub mecab_lattice_set_result(MeCab::Lattice, Str) is native($library) { * }
 my sub mecab_lattice_strerror(MeCab::Lattice) returns Str is native($library) { * }
+
+method new {
+    mecab_lattice_new();
+}
 
 method clear {
     mecab_lattice_clear(self)
@@ -128,4 +134,8 @@ method tostr {
 
 method nbest-tostr(Int $size) {
     mecab_lattice_nbest_tostr(self, $size)
+}
+
+submethod DESTROY {
+    mecab_lattice_destroy(self)    
 }

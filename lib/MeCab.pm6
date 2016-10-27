@@ -39,29 +39,9 @@ enum LatticeBoundaryConstraintType is export (
 );
 
 my sub mecab_strerror(MeCab::Tagger) returns Str is native($library) { * }
-my sub mecab_destroy(MeCab::Tagger) is native($library) { * }
-my sub mecab_lattice_new() returns MeCab::Lattice is native($library) { * }
-my sub mecab_lattice_destroy(MeCab::Lattice) is native($library) { * }
-my sub mecab_model_destroy(MeCab::Model) is native($library) { * }
-
-method create-lattice {
-    mecab_lattice_new()
-}
 
 our sub strerror(MeCab::Tagger $tagger) {
     mecab_strerror($tagger)
-}
-
-our sub destroy(MeCab::Tagger $tagger) {
-    mecab_destroy($tagger)
-}
-
-our sub lattice-destroy(MeCab::Lattice $tagger) {
-    mecab_lattice_destroy($tagger)
-}
-
-our sub model-destroy(MeCab::Model $model) {
-    mecab_model_destroy($model)
 }
 
 =begin pod

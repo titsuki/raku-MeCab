@@ -8,6 +8,7 @@ use MeCab::DictionaryInfo;
 
 my constant $library = %?RESOURCES<libraries/mecab>.Str;
 
+my sub mecab_destroy(MeCab::Tagger) is native($library) { * }
 my sub mecab_new2(Str) returns MeCab::Tagger is native($library) { * }
 my sub mecab_version() returns Str is native($library) { * }
 # DEPRECATED
@@ -96,4 +97,8 @@ method format-node(MeCab::Node $node) {
 
 method dictionary-info {
     mecab_dictionary_info(self)
+}
+
+submethod DESTROY {
+    mecab_destroy(self)
 }

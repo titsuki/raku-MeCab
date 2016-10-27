@@ -7,6 +7,7 @@ use MeCab::Lattice;
 
 my constant $library = %?RESOURCES<libraries/mecab>.Str;
 
+my sub mecab_model_destroy(MeCab::Model) is native($library) { * }
 my sub mecab_model_new(int32, CArray[Str]) returns MeCab::Model is native($library) { * }
 my sub mecab_model_new2(CArray[Str]) returns MeCab::Model is native($library) { * }
 my sub mecab_model_new_tagger(MeCab::Model) returns MeCab::Tagger is native($library) { * }
@@ -24,4 +25,8 @@ method create-tagger(MeCab::Model $model) {
 
 method create-lattice(MeCab::Model $model) {
     mecab_model_new_lattice(self)
+}
+
+submethod DESTROY {
+    mecab_model_destroy(self)
 }

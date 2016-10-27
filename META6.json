@@ -18,7 +18,7 @@
     "MeCab::Tagger" : "lib/MeCab/Tagger.pm6"
   },
   "resources" : [
-    "libraries/libmecab"
+    "libraries/mecab"
   ],
   "source-url" : "git://github.com/titsuki/p6-MeCab.git",
   "test-depends" : [ ],

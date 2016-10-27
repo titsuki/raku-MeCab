@@ -8,6 +8,36 @@ use MeCab::Model;
 
 my constant $library = %?RESOURCES<libraries/mecab>.Str;
 
+enum NodeStat is export (
+  :MECAB_NOR_NODE(0),
+  :MECAB_UNK_NODE(1),
+  :MECAB_BOS_NODE(2),
+  :MECAB_EOS_NODE(3),
+  :MECAB_EON_NODE(4)
+);
+
+enum DictionaryInfoType is export (
+  :MECAB_SYS_DIC(0),
+  :MECAB_USR_DIC(1),
+  :MECAB_UNK_DIC(2)
+);
+
+enum LatticeRequestType is export (
+  :MECAB_ONE_BEST(1),
+  :MECAB_NBEST(2),
+  :MECAB_PARTIAL(4),
+  :MECAB_MARGINAL_PROB(8),
+  :MECAB_ALTERNATIVE(16),
+  :MECAB_ALL_MORPHS(32),
+  :MECAB_ALLOCATE_SENTENCE(64)
+);
+
+enum LatticeBoundaryConstraintType is export (
+  :MECAB_ANY_BOUNDARY(0),
+  :MECAB_TOKEN_BOUNDARY(1),
+  :MECAB_INSIDE_TOKEN(2)
+);
+
 my sub mecab_strerror(MeCab::Tagger) returns Str is native($library) { * }
 my sub mecab_destroy(MeCab::Tagger) is native($library) { * }
 my sub mecab_lattice_new() returns MeCab::Lattice is native($library) { * }

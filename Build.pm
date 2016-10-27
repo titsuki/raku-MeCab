@@ -2,6 +2,9 @@ use LibraryMake;
 
 class Build {
     method build($workdir) {
+        if $*DISTRO.is-win {
+            die "Sorry, this binding doesn't support windows";
+        }
         my $srcdir = "$workdir/src";
         my %vars = get-vars($workdir);
         %vars<libmecab> = $*VM.platform-library-name('libmecab'.IO);
@@ -15,7 +18,12 @@ class Build {
         if "$workdir/resources/libraries/libmecab.so".IO.f {
             run 'rm', '-f', "$workdir/resources/libraries/libmecab.so";
         }
-        run 'ln', '-s', "$prefix/lib/libmecab.so", "$workdir/resources/libraries/libmecab.so"
+        if $*DISTRO.name eq 'macosx' {
+            run 'ln', '-s', "$prefix/lib/libmecab.dylib", "$workdir/resources/libraries/libmecab.dylib"
+        } else {
+            # linux
+            run 'ln', '-s', "$prefix/lib/libmecab.so", "$workdir/resources/libraries/libmecab.so"
+        }
     }
 
     method !install-mecab($workdir, $prefix) {

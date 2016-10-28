@@ -152,6 +152,26 @@ method nbest-tostr(Int $size) {
     mecab_lattice_nbest_tostr(self, $size)
 }
 
+method has-constraint returns Bool {
+    Bool(mecab_lattice_has_constraint(self))
+}
+
+multi method boundary-constraint(Int $pos) returns BoundaryConstraintType {
+    BoundaryConstraintType(mecab_lattice_get_boundary_constraint(self, $pos))
+}
+
+multi method boundary-constraint(Int $pos, BoundaryConstraintType $boundary-type) {
+    mecab_lattice_set_boundary_constraint(self, $pos, $boundary-type)
+}
+
+multi method feature-constraint(Int $begin-pos, Int $end-pos, Str $feature) {
+    mecab_lattice_set_feature_constraint(self, $begin-pos, $end-pos, $feature)
+}
+
+multi method feature-constraint(Int $pos) {
+    mecab_lattice_get_feature_constraint(self, $pos)
+}
+
 submethod DESTROY {
     mecab_lattice_destroy(self)    
 }

@@ -120,8 +120,8 @@ method next {
     mecab_lattice_next(self)
 }
 
-multi method request-type {
-    mecab_lattice_get_request_type(self)
+multi method request-type returns RequestType {
+    RequestType(mecab_lattice_get_request_type(self))
 }
 
 multi method request-type(Int $type) {

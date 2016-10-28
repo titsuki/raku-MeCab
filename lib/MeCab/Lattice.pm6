@@ -68,8 +68,8 @@ method clear {
     mecab_lattice_clear(self)
 }
 
-method is-available {
-    mecab_lattice_is_available(self)
+method is-available returns Bool {
+    Bool(mecab_lattice_is_available(self))
 }
 
 method bos-node {

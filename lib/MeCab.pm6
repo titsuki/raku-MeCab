@@ -22,22 +22,6 @@ enum DictionaryInfoType is export (
   :MECAB_UNK_DIC(2)
 );
 
-enum LatticeRequestType is export (
-  :MECAB_ONE_BEST(1),
-  :MECAB_NBEST(2),
-  :MECAB_PARTIAL(4),
-  :MECAB_MARGINAL_PROB(8),
-  :MECAB_ALTERNATIVE(16),
-  :MECAB_ALL_MORPHS(32),
-  :MECAB_ALLOCATE_SENTENCE(64)
-);
-
-enum LatticeBoundaryConstraintType is export (
-  :MECAB_ANY_BOUNDARY(0),
-  :MECAB_TOKEN_BOUNDARY(1),
-  :MECAB_INSIDE_TOKEN(2)
-);
-
 my sub mecab_strerror(MeCab::Tagger) returns Str is native($library) { * }
 
 our sub strerror(MeCab::Tagger $tagger) {

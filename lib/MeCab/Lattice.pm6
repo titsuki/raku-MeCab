@@ -7,6 +7,22 @@ use MeCab::Loadable;
 
 my constant $library = %?RESOURCES<libraries/mecab>.Str;
 
+enum RequestType is export (
+  :MECAB_ONE_BEST(1),
+  :MECAB_NBEST(2),
+  :MECAB_PARTIAL(4),
+  :MECAB_MARGINAL_PROB(8),
+  :MECAB_ALTERNATIVE(16),
+  :MECAB_ALL_MORPHS(32),
+  :MECAB_ALLOCATE_SENTENCE(64)
+);
+
+enum BoundaryConstraintType is export (
+  :MECAB_ANY_BOUNDARY(0),
+  :MECAB_TOKEN_BOUNDARY(1),
+  :MECAB_INSIDE_TOKEN(2)
+);
+
 my sub mecab_lattice_destroy(MeCab::Lattice) is native($library) { * }
 my sub mecab_lattice_new() returns MeCab::Lattice is native($library) { * }
 my sub mecab_lattice_clear(MeCab::Lattice) is native($library) { * }

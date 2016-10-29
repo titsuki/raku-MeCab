@@ -172,6 +172,10 @@ multi method feature-constraint(Int $pos) {
     mecab_lattice_get_feature_constraint(self, $pos)
 }
 
+method set-result(Str $text) {
+    mecab_lattice_set_result(self, $text)
+}
+
 submethod DESTROY {
     mecab_lattice_destroy(self)    
 }

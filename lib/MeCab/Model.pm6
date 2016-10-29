@@ -19,11 +19,11 @@ method new {
     mecab_model_new2($argv)
 }
 
-method create-tagger(MeCab::Model $model) {
+method create-tagger {
     mecab_model_new_tagger(self)
 }
 
-method create-lattice(MeCab::Model $model) {
+method create-lattice {
     mecab_model_new_lattice(self)
 }
 

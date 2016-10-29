@@ -8,14 +8,6 @@ use MeCab::Model;
 
 my constant $library = %?RESOURCES<libraries/mecab>.Str;
 
-enum NodeStat is export (
-  :MECAB_NOR_NODE(0),
-  :MECAB_UNK_NODE(1),
-  :MECAB_BOS_NODE(2),
-  :MECAB_EOS_NODE(3),
-  :MECAB_EON_NODE(4)
-);
-
 enum DictionaryInfoType is export (
   :MECAB_SYS_DIC(0),
   :MECAB_USR_DIC(1),

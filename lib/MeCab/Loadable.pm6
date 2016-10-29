@@ -4,6 +4,14 @@ my constant $library = %?RESOURCES<libraries/mecab>.Str;
 
 class MeCab::Path is repr('CStruct') { ... }
 class MeCab::Node is repr('CStruct') is export {
+    enum Stat is export (
+        :MECAB_NOR_NODE(0),
+        :MECAB_UNK_NODE(1),
+        :MECAB_BOS_NODE(2),
+        :MECAB_EOS_NODE(3),
+        :MECAB_EON_NODE(4)
+    );
+
     my sub mecab_node_t_surface_get(MeCab::Node) returns Str is native($library) { * };
     has MeCab::Node $.prev;
     has MeCab::Node $.next;

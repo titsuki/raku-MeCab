@@ -176,6 +176,10 @@ method set-result(Str $text) {
     mecab_lattice_set_result(self, $text)
 }
 
+method strerror {
+    mecab_lattice_strerror(self)
+}
+
 submethod DESTROY {
     mecab_lattice_destroy(self)    
 }

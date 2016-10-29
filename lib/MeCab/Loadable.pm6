@@ -28,7 +28,7 @@ class MeCab::Node is repr('CStruct') is export {
     has uint16 $.lcAttr;
     has uint16 $.posid;
     has uint8 $.char_type;
-    has uint8 $.stat;
+    has uint8 $!stat;
     has uint8 $.isbest;
     has num32 $.alpha;
     has num32 $.beta;
@@ -38,6 +38,10 @@ class MeCab::Node is repr('CStruct') is export {
 
     method surface {
         mecab_node_t_surface_get(self);
+    }
+
+    method stat {
+        Stat($!stat)
     }
 }
 

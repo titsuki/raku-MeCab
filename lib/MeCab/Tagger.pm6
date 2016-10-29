@@ -60,8 +60,8 @@ multi method parse(Str $text) {
     mecab_sparse_tostr(self, $text);
 }
 
-multi method parse(MeCab::Lattice $lattice) {
-    mecab_parse_lattice(self, $lattice);
+multi method parse(MeCab::Lattice $lattice) returns Bool {
+    Bool(mecab_parse_lattice(self, $lattice))
 }
 
 method parse-tonode(Str $text) {

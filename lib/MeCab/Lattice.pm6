@@ -128,8 +128,8 @@ multi method request-type(Int $type) {
     mecab_lattice_set_request_type(self, $type)
 }
 
-method has-request-type(Int $type) {
-    mecab_lattice_has_request_type(self, $type)
+method has-request-type(Int $type) returns Bool {
+    Bool(mecab_lattice_has_request_type(self, $type))
 }
 
 method add-request-type(Int $type) {

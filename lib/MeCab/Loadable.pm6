@@ -29,7 +29,7 @@ class MeCab::Node is repr('CStruct') is export {
     has uint16 $.posid;
     has uint8 $.char_type;
     has uint8 $!stat;
-    has uint8 $.isbest;
+    has uint8 $!isbest;
     has num32 $.alpha;
     has num32 $.beta;
     has num32 $.prob;
@@ -42,6 +42,10 @@ class MeCab::Node is repr('CStruct') is export {
 
     method stat {
         Stat($!stat)
+    }
+
+    method isbest returns Bool {
+        Bool($!isbest)
     }
 }
 

@@ -2,7 +2,7 @@ use v6;
 unit class MeCab::Tagger is repr('CPointer');
 
 use NativeCall;
-use MeCab::Loadable;
+use MeCab;
 use MeCab::Lattice;
 use MeCab::DictionaryInfo;
 
@@ -37,6 +37,7 @@ my sub mecab_format_node(MeCab::Tagger, MeCab::Node) returns Str is native($libr
 # my sub mecab_get_request_type(MeCab::Tagger) returns int32 is native($library) { * }
 # my sub mecab_set_request_type(MeCab::Tagger, int32) is native($library) { * }
 my sub mecab_dictionary_info(MeCab::Tagger) returns MeCab::DictionaryInfo is native($library) { * }
+my sub mecab_strerror(MeCab::Tagger) returns Str is native($library) { * }
 
 method new(Str $arg) {
     mecab_new2($arg);
@@ -97,6 +98,10 @@ method format-node(MeCab::Node $node) {
 
 method dictionary-info {
     mecab_dictionary_info(self)
+}
+
+method strerror {
+    mecab_strerror(self)
 }
 
 submethod DESTROY {

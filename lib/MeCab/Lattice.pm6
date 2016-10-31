@@ -3,7 +3,7 @@ use NativeCall;
 
 unit class MeCab::Lattice is repr('CPointer');
 
-use MeCab::Loadable;
+use MeCab;
 
 my constant $library = %?RESOURCES<libraries/mecab>.Str;
 

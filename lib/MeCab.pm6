@@ -3,12 +3,6 @@ use NativeCall;
 
 my constant $library = %?RESOURCES<libraries/mecab>.Str;
 
-enum DictionaryInfoType is export (
-  :MECAB_SYS_DIC(0),
-  :MECAB_USR_DIC(1),
-  :MECAB_UNK_DIC(2)
-);
-
 class MeCab::Path is repr('CStruct') { ... }
 class MeCab::Node is repr('CStruct') is export {
     enum Stat is export (

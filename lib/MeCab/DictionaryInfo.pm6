@@ -1,6 +1,12 @@
 use v6;
 unit class MeCab::DictionaryInfo is repr('CStruct');
 
+enum Type is export (
+  :MECAB_SYS_DIC(0),
+  :MECAB_USR_DIC(1),
+  :MECAB_UNK_DIC(2)
+);
+
 has Str $.filename;
 has Str $.charset;
 has uint32 $.size;

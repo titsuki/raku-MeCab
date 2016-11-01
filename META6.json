@@ -13,7 +13,6 @@
     "MeCab" : "lib/MeCab.pm6",
     "MeCab::DictionaryInfo" : "lib/MeCab/DictionaryInfo.pm6",
     "MeCab::Lattice" : "lib/MeCab/Lattice.pm6",
-    "MeCab::Loadable" : "lib/MeCab/Loadable.pm6",
     "MeCab::Model" : "lib/MeCab/Model.pm6",
     "MeCab::Tagger" : "lib/MeCab/Tagger.pm6"
   },

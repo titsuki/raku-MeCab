@@ -1,7 +1,7 @@
 use v6;
 unit class MeCab::DictionaryInfo is repr('CStruct');
 
-enum Type is export (
+enum DictionaryInfoType is export (
   :MECAB_SYS_DIC(0),
   :MECAB_USR_DIC(1),
   :MECAB_UNK_DIC(2)

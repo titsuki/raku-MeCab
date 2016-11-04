@@ -9,13 +9,17 @@ my constant $library = %?RESOURCES<libraries/mecab>.Str;
 
 my sub mecab_model_destroy(MeCab::Model) is native($library) { * }
 my sub mecab_model_new(int32, CArray[Str]) returns MeCab::Model is native($library) { * }
-my sub mecab_model_new2(CArray[Str]) returns MeCab::Model is native($library) { * }
+my sub mecab_model_new2(Str) returns MeCab::Model is native($library) { * }
 my sub mecab_model_new_tagger(MeCab::Model) returns MeCab::Tagger is native($library) { * }
 my sub mecab_model_new_lattice(MeCab::Model) returns MeCab::Lattice is native($library) { * }
 
-method new {
-    my CArray[Str] $argv .= new;
-    $argv[0] = "-C";
+multi method new {
+    my Str $argv = "-C";
+    mecab_model_new2($argv)
+}
+
+multi method new(Str $extra-argv) {
+    my Str $argv = "-C " ~ $extra-argv;
     mecab_model_new2($argv)
 }
 

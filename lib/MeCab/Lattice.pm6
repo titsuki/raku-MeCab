@@ -80,11 +80,11 @@ method eos-node {
     mecab_lattice_get_eos_node(self)
 }
 
-method all_begin_nodes {
+method all-begin-nodes {
     mecab_lattice_get_all_begin_nodes(self)
 }
 
-method all_end_nodes {
+method all-end-nodes {
     mecab_lattice_get_all_end_nodes(self)
 }
 

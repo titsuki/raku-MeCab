@@ -124,19 +124,19 @@ multi method request-type returns RequestType {
     RequestType(mecab_lattice_get_request_type(self))
 }
 
-multi method request-type(Int $type) {
+multi method request-type(RequestType $type) {
     mecab_lattice_set_request_type(self, $type)
 }
 
-method has-request-type(Int $type) returns Bool {
+method has-request-type(RequestType $type) returns Bool {
     Bool(mecab_lattice_has_request_type(self, $type))
 }
 
-method add-request-type(Int $type) {
+method add-request-type(RequestType $type) {
     mecab_lattice_add_request_type(self, $type)
 }
 
-method remove-request-type(Int $type) {
+method remove-request-type(RequestType $type) {
     mecab_lattice_remove_request_type(self, $type)
 }
 

@@ -116,8 +116,8 @@ multi method theta(Num $theta) {
     mecab_lattice_set_theta(self, $theta)
 }
 
-method next {
-    mecab_lattice_next(self)
+method next returns Bool {
+    Bool(mecab_lattice_next(self))
 }
 
 multi method request-type returns RequestType {

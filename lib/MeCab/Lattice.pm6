@@ -1,5 +1,6 @@
 use v6;
 use NativeCall;
+use experimental :pack;
 
 unit class MeCab::Lattice is repr('CPointer');
 
@@ -56,7 +57,7 @@ my sub mecab_lattice_has_constraint(MeCab::Lattice) returns int32 is native($lib
 my sub mecab_lattice_get_boundary_constraint(MeCab::Lattice, size_t) returns int32 is native($library) { * }
 my sub mecab_lattice_get_feature_constraint(MeCab::Lattice, size_t) returns Str is native($library) { * }
 my sub mecab_lattice_set_boundary_constraint(MeCab::Lattice, size_t, int32) is native($library) { * }
-my sub mecab_lattice_set_feature_constraint(MeCab::Lattice, size_t, size_t, Str) is native($library) { * }
+my sub mecab_lattice_set_feature_constraint(MeCab::Lattice, size_t, size_t, Pointer[Str]) is native($library) { * }
 my sub mecab_lattice_set_result(MeCab::Lattice, Str) is native($library) { * }
 my sub mecab_lattice_strerror(MeCab::Lattice) returns Str is native($library) { * }
 
@@ -165,7 +166,12 @@ multi method boundary-constraint(Int $pos, BoundaryConstraintType $boundary-type
 }
 
 multi method feature-constraint(Int $begin-pos, Int $end-pos, Str $feature) {
-    mecab_lattice_set_feature_constraint(self, $begin-pos, $end-pos, $feature)
+    my CArray[int8] $int8-feature .= new;
+    my $i = 0;
+    for $feature.encode('UTF-8').unpack("C*") {
+        $int8-feature[$i++] = $_;
+    }
+    mecab_lattice_set_feature_constraint(self, $begin-pos, $end-pos, nativecast(Pointer[Str], $int8-feature))
 }
 
 multi method feature-constraint(Int $pos) {

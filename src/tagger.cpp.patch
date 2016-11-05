@@ -1,10 +1,11 @@
 --- mecab-0.996/src/tagger.cpp	2013-02-18 01:55:30.000000000 +0900
-+++ mecab-0.996-new/src/tagger.cpp	2016-10-25 00:26:46.613979127 +0900
-@@ -738,6 +738,7 @@
-       allocator_(new Allocator<Node, Path>) {
-   begin_nodes_.reserve(MIN_INPUT_BUFFER_SIZE);
-   end_nodes_.reserve(MIN_INPUT_BUFFER_SIZE);
-+  request_type_ |= MECAB_ALLOCATE_SENTENCE;
- }
++++ mecab-0.996-new/src/tagger.cpp	2016-11-05 16:25:51.680987399 +0900
+@@ -732,7 +732,7 @@
  
- LatticeImpl::~LatticeImpl() {}
+ LatticeImpl::LatticeImpl(const Writer *writer)
+     : sentence_(0), size_(0), theta_(kDefaultTheta), Z_(0.0),
+-      request_type_(MECAB_ONE_BEST),
++      request_type_(MECAB_ONE_BEST | MECAB_ALLOCATE_SENTENCE),
+       writer_(writer),
+       ostrs_(0),
+       allocator_(new Allocator<Node, Path>) {

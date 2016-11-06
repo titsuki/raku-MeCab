@@ -54,3 +54,102 @@ method strerror {
 submethod DESTROY {
     mecab_destroy(self)
 }
+
+=begin pod
+
+=head1 NAME
+
+MeCab::Tagger - A Perl 6 MeCab::Tagger class
+
+=head1 SYNOPSIS
+
+       use MeCab;
+       use MeCab::Tagger;
+       
+       my Str $text = "すもももももももものうち。";
+       my $mecab-tagger = MeCab::Tagger.new('-C');
+       loop ( my MeCab::Node $node = $mecab-tagger.parse-tonode($text); $node; $node = $node.next ) {
+              say ($node.surface, $node.feature).join("\t");
+       }
+       
+       # OUTPUT«
+       #         BOS/EOS,*,*,*,*,*,*,*,*
+       # すもも  名詞,一般,*,*,*,*,すもも,スモモ,スモモ
+       # も      助詞,係助詞,*,*,*,*,も,モ,モ
+       # もも    名詞,一般,*,*,*,*,もも,モモ,モモ
+       # も      助詞,係助詞,*,*,*,*,も,モ,モ
+       # もも    名詞,一般,*,*,*,*,もも,モモ,モモ
+       # の      助詞,連体化,*,*,*,*,の,ノ,ノ
+       # うち    名詞,非自立,副詞可能,*,*,*,うち,ウチ,ウチ
+       # 。      記号,句点,*,*,*,*,。,。,。
+       #         BOS/EOS,*,*,*,*,*,*,*,*
+       # »
+
+=head1 DESCRIPTION
+
+MeCab::Tagger is a Perl 6 MeCab::Tagger class.
+
+=head2 METHODS
+
+=head3 new
+
+Defined as:
+
+        method new(Str $arg) returns MeCab::Tagger
+
+Creates a new MeCab::Tagger object.
+
+=head3 version
+
+Defined as:
+
+        method version() returns Str
+
+Returns the version.
+
+=head3 parse
+
+Defined as:
+
+        multi method parse(Str $text) returns Str
+        multi method parse(MeCab::Lattice $lattice)
+
+Parses the given C<$text> or C<$lattice>.
+
+=head3 parse-tonode
+
+Defined as:
+
+        method parse-tonode(Str $text) returns MeCab::Node
+
+Parses the given C<$text> and returns a resulting C<MeCab::Node> object.
+
+=head3 dictionary-info
+
+Defined as:
+
+        method dictionary-info() returns MeCab::DictionaryInfo
+
+Returns the MeCab::DictionaryInfo object.
+
+=head3 strerror
+
+Defined as:
+
+        method strerror() returns Str
+
+Returns a stored error message if it has one.
+
+=head1 AUTHOR
+
+titsuki <titsuki@cpan.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright 2016 titsuki
+
+MeCab ( http://taku910.github.io/mecab/ ) by Taku Kudo is licensed under the GPL/LGPL/BSD License.
+
+This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
+
+=end pod

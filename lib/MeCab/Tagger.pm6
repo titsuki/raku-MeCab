@@ -26,9 +26,8 @@ my sub mecab_sparse_tonode(MeCab::Tagger, Str) returns MeCab::Node is native($li
 my sub mecab_sparse_tostr(MeCab::Tagger, Str) returns Str is native($library) { * }
 my sub mecab_sparse_tostr2(MeCab::Tagger, size_t, Str, size_t) returns CArray[int8] is native($library) { * }
 my sub mecab_sparse_tostr3(MeCab::Tagger, size_t, Str, size_t, CArray[int8], size_t) returns CArray[int8] is native($library) { * }
-# DEPRECATED
-# my sub mecab_nbest_init(MeCab::Tagger, Str) returns int32 is native($library) { * }
-# my sub mecab_nbest_init2(MeCab::Tagger, Str, size_t) returns int32 is native($library) { * }
+my sub mecab_nbest_init(MeCab::Tagger, Str) returns int32 is native($library) { * }
+my sub mecab_nbest_init2(MeCab::Tagger, Str, size_t) returns int32 is native($library) { * }
 my sub mecab_nbest_next_tostr(MeCab::Tagger) returns Str is native($library) { * }
 my sub mecab_nbest_next_tostr2(MeCab::Tagger, CArray[int8], size_t) returns CArray[int8] is native($library) { * }
 my sub mecab_nbest_next_tonode(MeCab::Tagger) returns MeCab::Node is native($library) { * }
@@ -69,10 +68,9 @@ method parse-tonode(Str $text) {
     mecab_sparse_tonode(self, $text);
 }
 
-# DEPRECATED
-# method nbest-init(Str $text) {
-#     mecab_nbest_init(self, $text)
-# }
+method nbest-init(Str $text) returns Bool {
+    Bool(mecab_nbest_init(self, $text))
+}
 
 method nbest-next-tostr {
     mecab_nbest_next_tostr(self)

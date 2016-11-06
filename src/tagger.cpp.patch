@@ -1,3 +1,11 @@
+// MeCab -- Yet Another Part-of-Speech and Morphological Analyzer
+//
+//
+//  Copyright(C) 2001-2006 Taku Kudo <taku@chasen.org>
+//  Copyright(C) 2004-2006 Nippon Telegraph and Telephone Corporation
+
+// p6-MeCab -- A Perl 6 bindings for MeCab
+//  Copyright(C) 2016 titsuki <titsuki@cpan.org>
 --- mecab-0.996/src/tagger.cpp	2013-02-18 01:55:30.000000000 +0900
 +++ mecab-0.996-new/src/tagger.cpp	2016-11-05 16:25:51.680987399 +0900
 @@ -732,7 +732,7 @@

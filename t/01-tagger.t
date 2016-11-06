@@ -35,7 +35,7 @@ subtest {
     }
 }, "MeCab::Tagger.parse-tonode should return a fulfilled MeCab::Node object.";
 
-{
+subtest {
     my Str $text = "すもももももももものうち。";
     my $mecab-tagger = MeCab::Tagger.new('-C');
 
@@ -52,7 +52,7 @@ subtest {
     ).join("\n");
 
     is $mecab-tagger.parse($text) , $expected;
-}
+},"MeCab::Tagger.parse should return a resulting Str.";
 
 {
     my Str $text = "すもももももももものうち。";

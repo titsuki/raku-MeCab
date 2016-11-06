@@ -3,7 +3,7 @@
 NAME
 ====
 
-p6-MeCab - A Perl 6 bindings for MeCab ( http://taku910.github.io/mecab/ )
+MeCab - A Perl 6 bindings for libmecab ( http://taku910.github.io/mecab/ )
 
 SYNOPSIS
 ========
@@ -63,7 +63,7 @@ EXAMPLE 2
 DESCRIPTION
 ===========
 
-p6-MeCab is a Perl 6 bindings for MeCab ( http://taku910.github.io/mecab/ ).
+MeCab is a Perl 6 bindings for libmecab ( http://taku910.github.io/mecab/ ).
 
 NOTICE
 ======
@@ -71,12 +71,12 @@ NOTICE
 COMPATIBILITY
 -------------
 
-p6-MeCab currently doesn't support Windows. It supports Linux/Unix or Mac OS X.
+MeCab currently doesn't support Windows. It supports Linux/Unix or Mac OS X.
 
 BUILDING MeCab
 --------------
 
-p6-MeCab depends on the following:
+MeCab depends on the following:
 
   * wget
 
@@ -96,6 +96,6 @@ COPYRIGHT AND LICENSE
 
 Copyright 2016 titsuki
 
-MeCab ( http://taku910.github.io/mecab/ ) by Taku Kudo is licensed under the GPL/LGPL/BSD License.
+libmecab ( http://taku910.github.io/mecab/ ) by Taku Kudo is licensed under the GPL/LGPL/BSD License.
 
 This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.

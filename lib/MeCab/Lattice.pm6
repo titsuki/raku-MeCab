@@ -189,3 +189,225 @@ method strerror {
 submethod DESTROY {
     mecab_lattice_destroy(self)    
 }
+
+=begin pod
+
+=head1 NAME
+
+MeCab::Lattice - A Perl 6 MeCab::Lattice class
+
+=head1 SYNOPSIS
+
+       use MeCab;
+       use MeCab::Lattice;
+       use MeCab::Tagger;
+       use MeCab::Model;
+       
+       my MeCab::Model $model .= new;
+       my MeCab::Tagger $tagger = $model.create-tagger;
+       my MeCab::Lattice $lattice = $model.create-lattice;
+       $lattice.sentence("今日も");
+
+       if $tagger.parse($lattice) {
+          say $lattice.tostr;
+       }
+
+       # OUTPUT«
+       # 今日    名詞,副詞可能,*,*,*,*,今日,キョウ,キョー
+       # も      助詞,係助詞,*,*,*,*,も,モ,モ
+       # EOS
+       # »
+
+=head1 DESCRIPTION
+
+MeCab::Lattice is a Perl 6 MeCab::Lattice class.
+
+=head2 METHODS
+
+=head3 new
+
+Defined as:
+        
+        method new() returns MeCab::Lattice
+
+Creates a new MeCab::Lattice object.
+
+=head3 clear
+
+Defined as:
+
+        method clear()
+
+Clears the invocant MeCab::Lattice object.
+
+=head3 is-avilable
+
+Defined as:
+
+        method is-available() returns Bool
+
+Returns whether the invocant MeCab::Lattice object is available or not.
+
+=head3 bos-node
+
+Defined as:
+
+        method bos-node() returns MeCab::Node
+
+Returns the bos node.
+
+=head3 eos-node
+
+Defined as:
+
+        method eos-node() returns MeCab::Node
+
+Returns the eos node.
+
+=head3 all-begin-nodes
+
+Defined as:
+
+        method all-begin-nodes() returns MeCab::Node
+
+TBD
+
+=head3 all-end-nodes
+
+Defined as:
+
+        method all-end-nodes() returns MeCab::Node
+
+TBD
+
+=head3 sentence
+
+Defined as:
+
+        multi method sentence() returns Str
+        multi method sentence(Str $text)
+
+Are getter/setter methods for the sentence.
+
+=head3 size
+
+Defined as:
+
+        method size() returns Int
+
+Returns the size.
+
+=head3 z
+
+Defined as:
+
+        multi method z() returns Num
+        multi method z(Num $z)
+
+Are getter/setter methods for the parameter z.
+
+=head3 theta
+
+Defined as:
+
+        multi method theta() returns Num
+        multi method theta(Num $z)
+
+Are getter/setter methods for the parameter theta.
+
+=head3 next
+
+Defined as:
+
+        method next() returns Bool
+
+TBD
+
+=head3 request-type
+
+Defined as:
+
+        multi method request-type() returns RequestType
+        multi method request-type(RequestType $type)
+
+Are getter/setter methods for the C<RequestType> constant.
+
+=head3 has-request-type
+
+Defined as:
+
+        method has-request-type(RequestType $type) returns Bool
+
+Returns whether the invocant MeCab::Lattice object has the given C<RequestType> constant.
+
+=head3 add-request-type
+
+Defined as:
+
+        method add-request-type(RequestType $type)
+
+Adds the given C<RequestType> constant to the invocant MeCab::Lattice object.
+
+=head3 remove-request-type
+
+Defined as:
+
+        method remove-request-type(RequestType $type)
+
+Removes the given C<RequestType> constant from the invocant MeCab::Lattice object.
+
+=head3 create-node
+
+Defined as:
+
+        method create-node() returns MeCab::Node
+
+Creates a new MeCab::Node object.
+
+=head3 tostr
+
+Defined as:
+
+        method tostr() returns Str
+
+Returns the Str representation of the invocant MeCab::Lattice object.
+
+=head3 nbest-tostr
+
+Defined as:
+
+        method nbest-tostr(Int $size) returns Str
+
+Returns the top C<$size> Str representations of the invocant MeCab::Lattice object.
+
+=head2 CONSTANTS
+
+=head3 RequestType
+
+=item1 C<:MECAB_ONE_BEST(1)>
+=item1 C<:MECAB_NBEST(2)>
+=item1 C<:MECAB_PARTIAL(4)>
+=item1 C<:MECAB_MARGINAL_PROB(8)>
+=item1 C<:MECAB_ALTERNATIVE(16)>
+=item1 C<:MECAB_ALL_MORPHS(32)>
+=item1 C<:MECAB_ALLOCATE_SENTENCE(64)>
+
+=head3 BoundaryConstraintType
+
+=item1 C<:MECAB_ANY_BOUNDARY(0)>
+=item1 C<:MECAB_TOKEN_BOUNDARY(1)>
+=item1 C<:MECAB_INSIDE_TOKEN(2)>
+
+=head1 AUTHOR
+
+titsuki <titsuki@cpan.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright 2016 titsuki
+
+MeCab ( http://taku910.github.io/mecab/ ) by Taku Kudo is licensed under the GPL/LGPL/BSD License.
+
+This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
+
+=end pod

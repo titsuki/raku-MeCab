@@ -82,7 +82,7 @@ MeCab depends on the following:
 
   * mecab-0.996
 
-  * mecab-mecab-ipadic-2.7.0-20070801
+  * mecab-ipadic-2.7.0-20070801
 
 Once the build starts, it automatically downloads `mecab-0.996` and `mecab-mecab-ipadic-2.7.0-20070801` with `wget` and installs these stuffs under the `$HOME/.p6mecab` directory, where `$HOME` is your home directory.
 

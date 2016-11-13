@@ -139,7 +139,7 @@ MeCab depends on the following:
 =item1 mecab-0.996
 =item1 mecab-ipadic-2.7.0-20070801
 
-Once the build starts, it automatically downloads C<mecab-0.996> and C<mecab-mecab-ipadic-2.7.0-20070801> with C<wget> and installs these stuffs under the C<$HOME/.p6mecab> directory, where C<$HOME> is your home directory.
+Once the build starts, it automatically downloads C<mecab-0.996> and C<mecab-ipadic-2.7.0-20070801> with C<wget> and installs these stuffs under the C<$HOME/.p6mecab> directory, where C<$HOME> is your home directory.
 
 =head1 AUTHOR
 

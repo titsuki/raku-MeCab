@@ -6,6 +6,8 @@ use MeCab::Tagger;
 
 lives-ok { my $mecab-tagger = MeCab::Tagger.new('-C'); }
 
+lives-ok { my $mecab-tagger = MeCab::Tagger.new; }
+
 subtest {
     {
         my Str $text = "すもももももももものうち。";

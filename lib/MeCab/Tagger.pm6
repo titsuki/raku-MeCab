@@ -23,8 +23,12 @@ my sub mecab_sparse_tostr3(MeCab::Tagger, size_t, Str, size_t, CArray[int8], siz
 my sub mecab_dictionary_info(MeCab::Tagger) returns MeCab::DictionaryInfo is native($library) { * }
 my sub mecab_strerror(MeCab::Tagger) returns Str is native($library) { * }
 
-method new(Str $arg) {
+multi method new(Str $arg) {
     mecab_new2($arg);
+}
+
+multi method new {
+    mecab_new2("-C");
 }
 
 method version {

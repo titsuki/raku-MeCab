@@ -311,7 +311,7 @@ Are getter/setter methods for the parameter z.
 Defined as:
 
         multi method theta() returns Num
-        multi method theta(Num $z)
+        multi method theta(Num $theta)
 
 Are getter/setter methods for the parameter theta.
 

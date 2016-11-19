@@ -406,7 +406,7 @@ titsuki <titsuki@cpan.org>
 
 Copyright 2016 titsuki
 
-MeCab ( http://taku910.github.io/mecab/ ) by Taku Kudo is licensed under the GPL/LGPL/BSD License.
+libmecab ( http://taku910.github.io/mecab/ ) by Taku Kudo is licensed under the GPL, LGPL or BSD Licenses.
 
 This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
 

@@ -30,8 +30,6 @@ my sub mecab_lattice_clear(MeCab::Lattice) is native($library) { * }
 my sub mecab_lattice_is_available(MeCab::Lattice) returns int32 is native($library) { * }
 my sub mecab_lattice_get_bos_node(MeCab::Lattice) returns MeCab::Node is native($library) { * }
 my sub mecab_lattice_get_eos_node(MeCab::Lattice) returns MeCab::Node is native($library) { * }
-my sub mecab_lattice_get_all_begin_nodes(MeCab::Lattice) returns MeCab::Node is native($library) { * }
-my sub mecab_lattice_get_all_end_nodes(MeCab::Lattice) returns MeCab::Node is native($library) { * }
 my sub mecab_lattice_get_begin_nodes(MeCab::Lattice, size_t) returns MeCab::Node is native($library) { * }
 my sub mecab_lattice_get_end_nodes(MeCab::Lattice, size_t) returns MeCab::Node is native($library) { * }
 my sub mecab_lattice_get_sentence(MeCab::Lattice) returns Str is native($library) { * }
@@ -79,14 +77,6 @@ method bos-node {
 
 method eos-node {
     mecab_lattice_get_eos_node(self)
-}
-
-method all-begin-nodes {
-    mecab_lattice_get_all_begin_nodes(self)
-}
-
-method all-end-nodes {
-    mecab_lattice_get_all_end_nodes(self)
 }
 
 multi method sentence {
@@ -263,22 +253,6 @@ Defined as:
         method eos-node() returns MeCab::Node
 
 Returns the eos node.
-
-=head3 all-begin-nodes
-
-Defined as:
-
-        method all-begin-nodes() returns MeCab::Node
-
-TBD
-
-=head3 all-end-nodes
-
-Defined as:
-
-        method all-end-nodes() returns MeCab::Node
-
-TBD
 
 =head3 sentence
 

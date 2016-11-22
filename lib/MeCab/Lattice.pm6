@@ -79,6 +79,14 @@ method eos-node {
     mecab_lattice_get_eos_node(self)
 }
 
+method begin-nodes(Int $size) {
+    mecab_lattice_get_begin_nodes(self, $size)
+}
+
+method end-nodes(Int $size) {
+    mecab_lattice_get_end_nodes(self, $size)
+}
+
 multi method sentence {
     mecab_lattice_get_sentence(self)
 }

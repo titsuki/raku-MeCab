@@ -183,4 +183,113 @@ subtest {
     
 }, "MeCab::Lattice.nbest-tostr(2) should return the two results";
 
+subtest {
+    my MeCab::Model $model .= new;
+    my MeCab::Tagger $tagger = $model.create-tagger;
+    my MeCab::Lattice $lattice = $model.create-lattice;
+    $lattice.sentence("今日も");
+
+    my @expected[10];
+    @expected[0] = q:to/EOS/;
+    今日$$名詞,副詞可能,*,*,*,*,今日,コンニチ,コンニチ
+    今日$$名詞,副詞可能,*,*,*,*,今日,キョウ,キョー
+    今$$名詞,副詞可能,*,*,*,*,今,イマ,イマ
+    今$$接頭詞,名詞接続,*,*,*,*,今,イマ,イマ
+    今$$接頭詞,名詞接続,*,*,*,*,今,コン,コン
+    今$$名詞,固有名詞,人名,姓,*,*,今,コン,コン
+    今$$名詞,固有名詞,人名,姓,*,*,今,イマ,イマ
+    今$$名詞,固有名詞,地域,一般,*,*,今,イマ,イマ
+    EOS
+
+    @expected[3] = q:to/EOS/;
+    日$$名詞,副詞可能,*,*,*,*,日,ヒ,ヒ
+    日$$名詞,接尾,一般,*,*,*,日,ニチ,ニチ
+    日$$名詞,接尾,一般,*,*,*,日,ビ,ビ
+    日$$名詞,接尾,助数詞,*,*,*,日,ニチ,ニチ
+    日$$名詞,非自立,副詞可能,*,*,*,日,ヒ,ヒ
+    日$$名詞,非自立,一般,*,*,*,日,ヒ,ヒ
+    日$$名詞,一般,*,*,*,*,日,ニチ,ニチ
+    日$$名詞,一般,*,*,*,*,日,ヒ,ヒ
+    日$$名詞,固有名詞,地域,国,*,*,日,ニッ,ニッ
+    日$$名詞,固有名詞,地域,国,*,*,日,ニチ,ニチ
+    日$$名詞,固有名詞,地域,一般,*,*,日,ヒ,ヒ
+    EOS
+
+    @expected[6] = q:to/EOS/;
+    も$$助詞,係助詞,*,*,*,*,も,モ,モ
+    も$$動詞,自立,*,*,五段・ラ行,体言接続特殊２,もる,モ,モ
+    EOS
+
+    @expected[9] = q:to/EOS/;
+    $$BOS/EOS,*,*,*,*,*,*,*,*
+    EOS
+
+    if $tagger.parse($lattice) {
+        for 0..$lattice.size -> $len {
+            next if not @expected[$len].defined;
+            my @actual;
+            loop (my MeCab::Node $bn = $lattice.begin-nodes($len); $bn; $bn = $bn.bnext) {
+                @actual.push($bn.surface ~ '$$' ~ $bn.feature);
+            }
+            ok Set(@actual) ~~ Set(@expected[$len].split("\n", :skip-empty));
+        }
+    }
+    
+}, "Given the begin position BEGINPOS, MeCab::Lattice.begin-nodes(BEGINPOS) should return begin nodes that are begining at BEGINPOS";
+
+subtest {
+    my MeCab::Model $model .= new;
+    my MeCab::Tagger $tagger = $model.create-tagger;
+    my MeCab::Lattice $lattice = $model.create-lattice;
+    $lattice.sentence("今日も");
+
+    my @expected[10];
+    @expected[0] = q:to/EOS/;
+    $$BOS/EOS,*,*,*,*,*,*,*,*
+    EOS
+
+    @expected[3] = q:to/EOS/;
+    今$$名詞,副詞可能,*,*,*,*,今,イマ,イマ
+    今$$接頭詞,名詞接続,*,*,*,*,今,イマ,イマ
+    今$$接頭詞,名詞接続,*,*,*,*,今,コン,コン
+    今$$名詞,固有名詞,人名,姓,*,*,今,コン,コン
+    今$$名詞,固有名詞,人名,姓,*,*,今,イマ,イマ
+    今$$名詞,固有名詞,地域,一般,*,*,今,イマ,イマ
+    EOS
+
+    @expected[6] = q:to/EOS/;
+    今日$$名詞,副詞可能,*,*,*,*,今日,コンニチ,コンニチ
+    今日$$名詞,副詞可能,*,*,*,*,今日,キョウ,キョー
+    日$$名詞,副詞可能,*,*,*,*,日,ヒ,ヒ
+    日$$名詞,接尾,一般,*,*,*,日,ニチ,ニチ
+    日$$名詞,接尾,一般,*,*,*,日,ビ,ビ
+    日$$名詞,接尾,助数詞,*,*,*,日,ニチ,ニチ
+    日$$名詞,非自立,副詞可能,*,*,*,日,ヒ,ヒ
+    日$$名詞,非自立,一般,*,*,*,日,ヒ,ヒ
+    日$$名詞,一般,*,*,*,*,日,ニチ,ニチ
+    日$$名詞,一般,*,*,*,*,日,ヒ,ヒ
+    日$$名詞,固有名詞,地域,国,*,*,日,ニッ,ニッ
+    日$$名詞,固有名詞,地域,国,*,*,日,ニチ,ニチ
+    日$$名詞,固有名詞,地域,一般,*,*,日,ヒ,ヒ
+    EOS
+
+    @expected[9] = q:to/EOS/;
+    $$BOS/EOS,*,*,*,*,*,*,*,*
+    も$$助詞,係助詞,*,*,*,*,も,モ,モ
+    も$$動詞,自立,*,*,五段・ラ行,体言接続特殊２,もる,モ,モ
+    EOS
+    
+    if $tagger.parse($lattice) {
+        for 0..$lattice.size -> $len {
+            next if not @expected[$len].defined;
+            my @actual;
+            loop (my MeCab::Node $en = $lattice.end-nodes($len); $en; $en = $en.enext) {
+                @actual.push($en.surface ~ '$$' ~ $en.feature);
+            }
+            ok Set(@actual) ~~ Set(@expected[$len].split("\n", :skip-empty));
+        }
+    }
+    
+}, "Given the end position ENDPOS, MeCab::Lattice.end-nodes(ENDPOS) should return end nodes that are ending at ENDPOS";
+
 done-testing;

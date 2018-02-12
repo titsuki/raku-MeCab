@@ -1,5 +1,5 @@
 use v6;
-unit class MeCab::Tagger is repr('CPointer');
+unit class MeCab::Tagger:auth<titsuki>:ver<0.0.6> is repr('CPointer');
 
 use NativeCall;
 use MeCab;

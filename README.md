@@ -94,6 +94,8 @@ mecab-ipadic-neologd
 
   * Step1: download and install neologd
 
+Example:
+
     $ git clone --depth 1 https://github.com/neologd/mecab-ipadic-neologd.git
     $ cd mecab-ipadic-neologd
     $ export PATH=$HOME/.p6mecab/bin:$PATH
@@ -101,7 +103,7 @@ mecab-ipadic-neologd
 
   * Step2: Use .new(:dicdir(PATH_TO_THE_DIR))
 
-An example for MeCab::Tagger:
+Example:
 
     use MeCab;
     use MeCab::Tagger;

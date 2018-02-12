@@ -147,14 +147,17 @@ Once the build starts, it automatically downloads C<mecab-0.996> and C<mecab-ipa
 
 =item1 Step1: download and install neologd
 
+Example:
+
        $ git clone --depth 1 https://github.com/neologd/mecab-ipadic-neologd.git
        $ cd mecab-ipadic-neologd
        $ export PATH=$HOME/.p6mecab/bin:$PATH
        $ ./bin/install-mecab-ipadic-neologd -p $HOME/.p6mecab/lib/mecab/dic/ipadic-neologd
 
+
 =item1 Step2: Use .new(:dicdir(PATH_TO_THE_DIR))
 
-An example for MeCab::Tagger:
+Example:
 
        use MeCab;
        use MeCab::Tagger;

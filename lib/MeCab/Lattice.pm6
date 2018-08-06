@@ -1,6 +1,5 @@
 use v6;
 use NativeCall;
-use experimental :pack;
 
 unit class MeCab::Lattice:auth<titsuki>:ver<0.0.6> is repr('CPointer');
 
@@ -164,6 +163,8 @@ multi method boundary-constraint(Int $pos, BoundaryConstraintType $boundary-type
 }
 
 multi method feature-constraint(Int $begin-pos, Int $end-pos, Str $feature) {
+    use experimental :pack;
+
     my CArray[int8] $int8-feature .= new;
     my $i = 0;
     for $feature.encode('UTF-8').unpack("C*") {

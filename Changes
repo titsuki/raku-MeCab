@@ -2,6 +2,12 @@ Revision history for MeCab
 
 {{$NEXT}}
 
+0.0.7  2018-08-07T23:09:31+09:00
+    - Fixes:
+      - Call on use experimental at the different line [#20]
+    - Additions:
+    - Efficiency:
+
 0.0.6  2018-02-12T20:31:45+09:00
     - Fixes:
       - Fix constructor to introduce 3rd-party dictionary such as mecab-ipadic-neologd [#19]

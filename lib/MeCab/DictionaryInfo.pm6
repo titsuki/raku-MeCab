@@ -1,5 +1,5 @@
 use v6;
-unit class MeCab::DictionaryInfo:auth<titsuki>:ver<0.0.8> is repr('CStruct');
+unit class MeCab::DictionaryInfo:auth<titsuki>:ver<0.0.9> is repr('CStruct');
 
 enum DictionaryInfoType is export (
   :MECAB_SYS_DIC(0),

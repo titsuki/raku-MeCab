@@ -2,6 +2,12 @@ Revision history for MeCab
 
 {{$NEXT}}
 
+0.0.8  2019-02-08T20:42:51+09:00
+    - Fixes:
+      - Fix version consistency (I found that META6.json is set to 0.0.6 incorrectly)
+    - Additions:
+    - Efficiency:
+
 0.0.7  2018-08-07T23:09:31+09:00
     - Fixes:
       - Call on use experimental at the different line [#20]

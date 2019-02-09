@@ -2,6 +2,12 @@ Revision history for MeCab
 
 {{$NEXT}}
 
+0.0.11  2019-02-10T01:31:12+09:00
+    - Fixes:
+      - Fix version consistency (Add the empty MeCab class for version loading)
+    - Additions:
+    - Efficiency:
+
 0.0.10  2019-02-09T23:46:52+09:00
     - Fixes:
       - Make sure p6-MeCab depends Zef::Fetch [24f9648]

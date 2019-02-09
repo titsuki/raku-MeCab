@@ -3,7 +3,8 @@
     "titsuki"
   ],
   "build-depends" : [
-    "LibraryMake"
+    "LibraryMake",
+    "Zef::Fetch"
   ],
   "depends" : [ ],
   "description" : "A Perl 6 bindings for libmecab ( http://taku910.github.io/mecab/ )",

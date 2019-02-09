@@ -2,6 +2,12 @@ Revision history for MeCab
 
 {{$NEXT}}
 
+0.0.10  2019-02-09T23:46:52+09:00
+    - Fixes:
+      - Make sure p6-MeCab depends Zef::Fetch [24f9648]
+    - Additions:
+    - Efficiency:
+
 0.0.9  2019-02-08T21:17:58+09:00
     - Fixes:
       - Fix version consistency (I found that META6.json is set to 0.0.7 incorrectly)

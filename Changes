@@ -2,6 +2,12 @@ Revision history for MeCab
 
 {{$NEXT}}
 
+0.0.12  2019-02-10T23:02:29+09:00
+    - Fixes:
+      - Add missing dependencies
+    - Additions:
+    - Efficiency:
+
 0.0.11  2019-02-10T01:31:12+09:00
     - Fixes:
       - Fix version consistency (Add the empty MeCab class for version loading)

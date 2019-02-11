@@ -5,12 +5,7 @@
   ],
   "build-depends" : [
     "LibraryMake",
-    "Zef::Fetch",
-    "Zef::Extract",
-    "Zef::Service::Shell::wget",
-    "Zef::Service::Shell::curl",
-    "Zef::Service::Shell::tar",
-    "Zef::Service::Shell::p5tar"
+    "Zef"
   ],
   "depends" : [ ],
   "description" : "A Perl 6 bindings for libmecab ( http://taku910.github.io/mecab/ )",

@@ -1,9 +1,13 @@
+use v6;
 use LibraryMake;
+use Zef;
 use Zef::Fetch;
 use Zef::Extract;
+use Distribution::Builder::MakeFromJSON;
 
-class Build {
-    method build($workdir) {
+class MeCab::CustomBuilder:ver<0.0.13> is Distribution::Builder::MakeFromJSON {
+    method build(IO() $work-dir = $*CWD) {
+        my $workdir = ~$work-dir;
         if $*DISTRO.is-win {
             die "Sorry, this binding doesn't support windows";
         }
@@ -36,14 +40,14 @@ class Build {
         my $uri          = 'https://drive.google.com/uc?export=download&id=0B4y35FiV1wh7cENtOXlicTFaRUE';
         my $archive-file = "mecab-0.996.tar.gz".IO.e
         ?? "mecab-0.996.tar.gz"
-        !! $fetcher.fetch($uri, "mecab-0.996.tar.gz");
+        !! $fetcher.fetch(Candidate.new(:$uri), "mecab-0.996.tar.gz");
 
         my @extract-backends = [
             { module => "Zef::Service::Shell::tar" },
             { module => "Zef::Service::Shell::p5tar" },
         ];
         my $extractor   = Zef::Extract.new(:backends(@extract-backends));
-        my $extract-dir = $extractor.extract($archive-file, $*CWD);
+        my $extract-dir = $extractor.extract(Candidate.new(:uri($archive-file)), $*CWD);
         if "mecab-0.996".IO.d {
             shell "patch -p1 mecab-0.996/src/mecab.h < $srcdir/mecab.h.patch";
             shell "patch -p1 mecab-0.996/src/libmecab.cpp < $srcdir/libmecab.cpp.patch";
@@ -70,7 +74,7 @@ class Build {
         my $uri          = 'https://drive.google.com/uc?export=download&id=0B4y35FiV1wh7MWVlSDBCSXZMTXM';
         my $archive-file = "mecab-ipadic-2.7.0-20070801.tar.gz".IO.e
         ?? "mecab-ipadic-2.7.0-20070801.tar.gz"
-        !! $fetcher.fetch($uri, "mecab-ipadic-2.7.0-20070801.tar.gz");
+        !! $fetcher.fetch(Candidate.new(:$uri), "mecab-ipadic-2.7.0-20070801.tar.gz");
 
         my @extract-backends = [
             { module => "Zef::Service::Shell::tar" },
@@ -79,7 +83,7 @@ class Build {
         my $extractor   = Zef::Extract.new(:backends(@extract-backends));
         my $extract-dir = $archive-file.IO.basename.subst(/\.tar\.gz/, '').IO.e
         ?? $archive-file.IO.basename.subst(/\.tar\.gz/, '').IO
-        !! $extractor.extract($archive-file, $*CWD);
+        !! $extractor.extract(Candidate.new(:uri($archive-file)), $*CWD);
 
         chdir("mecab-ipadic-2.7.0-20070801");
         shell("./configure --with-charset=utf8 --prefix=$prefix --with-mecab-config=$prefix/bin/mecab-config");

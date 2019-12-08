@@ -16,11 +16,11 @@
   "perl" : "6.c",
   "provides" : {
     "MeCab" : "lib/MeCab.pm6",
+    "MeCab::CustomBuilder" : "lib/MeCab/CustomBuilder.pm6",
     "MeCab::DictionaryInfo" : "lib/MeCab/DictionaryInfo.pm6",
     "MeCab::Lattice" : "lib/MeCab/Lattice.pm6",
     "MeCab::Model" : "lib/MeCab/Model.pm6",
-    "MeCab::Tagger" : "lib/MeCab/Tagger.pm6",
-    "MeCab::CustomBuilder" : "lib/MeCab/CustomBuilder.pm6"
+    "MeCab::Tagger" : "lib/MeCab/Tagger.pm6"
   },
   "resources" : [
     "libraries/mecab"
@@ -28,5 +28,5 @@
   "source-url" : "git://github.com/titsuki/p6-MeCab.git",
   "tags" : [ ],
   "test-depends" : [ ],
-  "version" : "0.0.13"
+  "version" : "0.0.14"
 }

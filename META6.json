@@ -6,7 +6,8 @@
   "build-depends" : [
     "LibraryMake",
     "Distribution::Builder::MakeFromJSON",
-    "Zef"
+    "Zef",
+    "MeCab::CustomBuilder"
   ],
   "builder" : "MeCab::CustomBuilder",
   "depends" : [ ],

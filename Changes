@@ -2,6 +2,12 @@ Revision history for MeCab
 
 {{$NEXT}}
 
+0.0.15  2019-12-18T07:59:34+09:00
+    - Fixes:
+      - Add CustomBuilder into build-depends
+    - Additions:
+    - Efficiency:
+
 0.0.14  2019-12-08T17:33:44+09:00
     - Fixes:
       - Use CustomBuilder.pm6 instead of Builder.pm [#22]

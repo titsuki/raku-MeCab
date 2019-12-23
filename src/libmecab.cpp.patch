@@ -33,7 +33,7 @@
 // ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 // Relicensed under the Artistic License 2.0:
-// p6-MeCab -- A Perl 6 bindings for MeCab
+// raku-MeCab -- A Raku bindings for MeCab
 //  Copyright(C) 2016 titsuki <titsuki@cpan.org>
 // For more details, see the "LICENSE" file.
 --- mecab-0.996/src/libmecab.cpp	2013-02-18 02:22:51.000000000 +0900

@@ -11,7 +11,7 @@
   ],
   "builder" : "MeCab::CustomBuilder",
   "depends" : [ ],
-  "description" : "A Perl 6 bindings for libmecab ( http://taku910.github.io/mecab/ )",
+  "description" : "A Raku bindings for libmecab ( http://taku910.github.io/mecab/ )",
   "license" : "Artistic-2.0",
   "name" : "MeCab",
   "perl" : "6.c",

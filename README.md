@@ -1,9 +1,9 @@
-[![Build Status](https://travis-ci.org/titsuki/p6-MeCab.svg?branch=master)](https://travis-ci.org/titsuki/p6-MeCab)
+[![Build Status](https://travis-ci.org/titsuki/raku-MeCab.svg?branch=master)](https://travis-ci.org/titsuki/raku-MeCab)
 
 NAME
 ====
 
-MeCab - A Perl 6 bindings for libmecab ( http://taku910.github.io/mecab/ )
+MeCab - A Raku bindings for libmecab ( http://taku910.github.io/mecab/ )
 
 SYNOPSIS
 ========
@@ -63,7 +63,7 @@ EXAMPLE 2
 DESCRIPTION
 ===========
 
-MeCab is a Perl 6 bindings for libmecab ( http://taku910.github.io/mecab/ ).
+MeCab is a Raku bindings for libmecab ( http://taku910.github.io/mecab/ ).
 
 NOTICE
 ======

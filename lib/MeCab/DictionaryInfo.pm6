@@ -24,7 +24,7 @@ method type {
 
 =head1 NAME
 
-MeCab::DictionaryInfo - A Perl 6 MeCab::DictionaryInfo class
+MeCab::DictionaryInfo - A Raku MeCab::DictionaryInfo class
 
 =head1 SYNOPSIS
 
@@ -38,7 +38,7 @@ MeCab::DictionaryInfo - A Perl 6 MeCab::DictionaryInfo class
 
 =head1 DESCRIPTION
 
-MeCab::DictionaryInfo is a Perl 6 MeCab::DictionaryInfo class.
+MeCab::DictionaryInfo is a Raku MeCab::DictionaryInfo class.
 
 =head2 METHODS
 

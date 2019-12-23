@@ -68,7 +68,7 @@ class MeCab::Path is export {
 
 =head1 NAME
 
-MeCab - A Perl 6 bindings for libmecab ( http://taku910.github.io/mecab/ )
+MeCab - A Raku bindings for libmecab ( http://taku910.github.io/mecab/ )
 
 =head1 SYNOPSIS
 
@@ -124,7 +124,7 @@ MeCab - A Perl 6 bindings for libmecab ( http://taku910.github.io/mecab/ )
 
 =head1 DESCRIPTION
 
-MeCab is a Perl 6 bindings for libmecab ( http://taku910.github.io/mecab/ ).
+MeCab is a Raku bindings for libmecab ( http://taku910.github.io/mecab/ ).
 
 =head1 NOTICE
 

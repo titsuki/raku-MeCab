@@ -193,7 +193,7 @@ submethod DESTROY {
 
 =head1 NAME
 
-MeCab::Lattice - A Perl 6 MeCab::Lattice class
+MeCab::Lattice - A Raku MeCab::Lattice class
 
 =head1 SYNOPSIS
 
@@ -219,7 +219,7 @@ MeCab::Lattice - A Perl 6 MeCab::Lattice class
 
 =head1 DESCRIPTION
 
-MeCab::Lattice is a Perl 6 MeCab::Lattice class.
+MeCab::Lattice is a Raku MeCab::Lattice class.
 
 =head2 METHODS
 

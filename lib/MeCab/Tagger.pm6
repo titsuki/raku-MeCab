@@ -93,7 +93,7 @@ submethod DESTROY {
 
 =head1 NAME
 
-MeCab::Tagger - A Perl 6 MeCab::Tagger class
+MeCab::Tagger - A Raku MeCab::Tagger class
 
 =head1 SYNOPSIS
 
@@ -121,7 +121,7 @@ MeCab::Tagger - A Perl 6 MeCab::Tagger class
 
 =head1 DESCRIPTION
 
-MeCab::Tagger is a Perl 6 MeCab::Tagger class.
+MeCab::Tagger is a Raku MeCab::Tagger class.
 
 =head2 METHODS
 

@@ -67,7 +67,7 @@ submethod DESTROY {
 
 =head1 NAME
 
-MeCab::Model - A Perl 6 MeCab::Model class
+MeCab::Model - A Raku MeCab::Model class
 
 =head1 SYNOPSIS
 
@@ -97,7 +97,7 @@ MeCab::Model - A Perl 6 MeCab::Model class
 
 =head1 DESCRIPTION
 
-MeCab::Model is a Perl 6 MeCab::Model class.
+MeCab::Model is a Raku MeCab::Model class.
 
 =head2 METHODS
 

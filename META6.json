@@ -26,7 +26,7 @@
   "resources" : [
     "libraries/mecab"
   ],
-  "source-url" : "git://github.com/titsuki/p6-MeCab.git",
+  "source-url" : "git://github.com/titsuki/raku-MeCab.git",
   "tags" : [ ],
   "test-depends" : [ ],
   "version" : "0.0.16"

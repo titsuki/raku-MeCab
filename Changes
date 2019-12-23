@@ -2,6 +2,12 @@ Revision history for MeCab
 
 {{$NEXT}}
 
+0.0.17  2019-12-24T00:29:29+09:00
+    - Fixes:
+      - Fix source-url field
+    - Additions:
+    - Efficiency:
+
 0.0.16  2019-12-24T00:27:59+09:00
     - Fixes:
       - Replace p6/perl6 with Raku

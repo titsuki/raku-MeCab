@@ -2,6 +2,12 @@ Revision history for MeCab
 
 {{$NEXT}}
 
+0.0.16  2019-12-24T00:27:59+09:00
+    - Fixes:
+      - Replace p6/perl6 with Raku
+    - Additions:
+    - Efficiency:
+
 0.0.15  2019-12-18T07:59:34+09:00
     - Fixes:
       - Add CustomBuilder into build-depends

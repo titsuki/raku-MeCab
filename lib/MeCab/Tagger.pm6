@@ -70,7 +70,7 @@ multi method parse(Str $text) {
 }
 
 multi method parse(MeCab::Lattice $lattice) returns Bool {
-    Bool(mecab_parse_lattice(self, $lattice))
+    mecab_parse_lattice(self, $lattice) ?? True !! False
 }
 
 method parse-tonode(Str $text) {

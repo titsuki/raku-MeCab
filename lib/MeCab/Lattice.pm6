@@ -67,7 +67,7 @@ method clear {
 }
 
 method is-available returns Bool {
-    Bool(mecab_lattice_is_available(self))
+    mecab_lattice_is_available(self) ?? True !! False
 }
 
 method bos-node {
@@ -151,7 +151,7 @@ method nbest-tostr(Int $size) {
 }
 
 method has-constraint returns Bool {
-    Bool(mecab_lattice_has_constraint(self))
+    mecab_lattice_has_constraint(self) ?? True !! False
 }
 
 multi method boundary-constraint(Int $pos) returns BoundaryConstraintType {

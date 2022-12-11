@@ -1,5 +1,5 @@
 use v6;
-unit class MeCab::Tagger:auth<titsuki>:ver<0.0.17> is repr('CPointer');
+unit class MeCab::Tagger:auth<zef:titsuki>:ver<0.0.17> is repr('CPointer');
 
 use NativeCall;
 use MeCab;
@@ -70,7 +70,7 @@ multi method parse(Str $text) {
 }
 
 multi method parse(MeCab::Lattice $lattice) returns Bool {
-    Bool(mecab_parse_lattice(self, $lattice))
+    mecab_parse_lattice(self, $lattice) ?? True !! False
 }
 
 method parse-tonode(Str $text) {

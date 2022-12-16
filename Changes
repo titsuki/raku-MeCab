@@ -2,6 +2,12 @@ Revision history for MeCab
 
 {{$NEXT}}
 
+0.0.18  2022-12-17T02:09:24+09:00
+    - Fixes:
+      - Upload to zef instead of cpan
+    - Additions:
+    - Efficiency:
+
 0.0.17  2019-12-24T00:29:29+09:00
     - Fixes:
       - Fix source-url field

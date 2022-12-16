@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/titsuki/raku-MeCab.svg?branch=master)](https://travis-ci.org/titsuki/raku-MeCab)
+[![Actions Status](https://github.com/titsuki/raku-MeCab/workflows/test/badge.svg)](https://github.com/titsuki/raku-MeCab/actions)
 
 NAME
 ====

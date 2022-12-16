@@ -1,5 +1,5 @@
 use v6;
-unit class MeCab::Model:auth<zef:titsuki>:ver<0.0.17> is repr('CPointer');
+unit class MeCab::Model:auth<zef:titsuki>:ver<0.0.18> is repr('CPointer');
 
 use NativeCall;
 use MeCab::Tagger;

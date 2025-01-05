@@ -27,10 +27,10 @@
   "resources": [
     "libraries/mecab"
   ],
-  "source-url": "git://github.com/titsuki/raku-MeCab.git",
+  "source-url": "https://github.com/titsuki/raku-MeCab.git",
   "tags": [
   ],
   "test-depends": [
   ],
-  "version": "0.0.18"
+  "version": "0.0.19"
 }

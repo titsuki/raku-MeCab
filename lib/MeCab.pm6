@@ -3,9 +3,9 @@ use NativeCall;
 
 my constant $library = %?RESOURCES<libraries/mecab>.Str;
 
-class MeCab:auth<zef:titsuki>:ver<0.0.18> { }
-class MeCab::Path:auth<zef:titsuki>:ver<0.0.18> is repr('CStruct') { ... }
-class MeCab::Node:auth<zef:titsuki>:ver<0.0.18> is repr('CStruct') is export {
+class MeCab:auth<zef:titsuki>:ver<0.0.19> { }
+class MeCab::Path:auth<zef:titsuki>:ver<0.0.19> is repr('CStruct') { ... }
+class MeCab::Node:auth<zef:titsuki>:ver<0.0.19> is repr('CStruct') is export {
     enum Stat is export (
         :MECAB_NOR_NODE(0),
         :MECAB_UNK_NODE(1),

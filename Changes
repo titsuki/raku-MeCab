@@ -2,6 +2,12 @@ Revision history for MeCab
 
 {{$NEXT}}
 
+0.0.19  2025-01-05T22:40:14+09:00
+    - Fixes:
+      - Fix broken mecab download links [#29]
+    - Additions:
+    - Efficiency:
+
 0.0.18  2022-12-17T02:09:24+09:00
     - Fixes:
       - Upload to zef instead of cpan

@@ -5,7 +5,7 @@ use Zef::Fetch;
 use Zef::Extract;
 use Distribution::Builder::MakeFromJSON;
 
-class MeCab::CustomBuilder:auth<zef:titsuki>:ver<0.0.18> is Distribution::Builder::MakeFromJSON {
+class MeCab::CustomBuilder:auth<zef:titsuki>:ver<0.0.19> is Distribution::Builder::MakeFromJSON {
     method build(IO() $work-dir = $*CWD) {
         my $workdir = ~$work-dir;
         if $*DISTRO.is-win {

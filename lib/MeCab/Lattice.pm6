@@ -1,7 +1,7 @@
 use v6;
 use NativeCall;
 
-unit class MeCab::Lattice:auth<zef:titsuki>:ver<0.0.18> is repr('CPointer');
+unit class MeCab::Lattice:auth<zef:titsuki>:ver<0.0.19> is repr('CPointer');
 
 use MeCab;
 

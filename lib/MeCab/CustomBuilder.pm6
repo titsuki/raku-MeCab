@@ -37,10 +37,10 @@ class MeCab::CustomBuilder:auth<zef:titsuki>:ver<0.0.18> is Distribution::Builde
             { module => "Zef::Service::Shell::curl" },
         ];
         my $fetcher      = Zef::Fetch.new(:backends(@fetch-backends));
-        my $uri          = 'https://drive.google.com/uc?export=download&id=0B4y35FiV1wh7cENtOXlicTFaRUE';
-        my $archive-file = "mecab-0.996.tar.gz".IO.e
-        ?? "mecab-0.996.tar.gz"
-        !! $fetcher.fetch(Candidate.new(:$uri), "mecab-0.996.tar.gz");
+        my $uri          = 'https://github.com/titsuki/mecab/releases/download/0.996/mecab_0.996.orig.tar.gz';
+        my $archive-file = "mecab-0.996.orig.tar.gz".IO.e
+        ?? "mecab-0.996.orig.tar.gz"
+        !! $fetcher.fetch(Candidate.new(:$uri), "mecab-0.996.orig.tar.gz");
 
         my @extract-backends = [
             { module => "Zef::Service::Shell::tar" },
@@ -71,7 +71,7 @@ class MeCab::CustomBuilder:auth<zef:titsuki>:ver<0.0.18> is Distribution::Builde
             { module => "Zef::Service::Shell::curl" },
         ];
         my $fetcher      = Zef::Fetch.new(:backends(@fetch-backends));
-        my $uri          = 'https://drive.google.com/uc?export=download&id=0B4y35FiV1wh7MWVlSDBCSXZMTXM';
+        my $uri          = 'https://github.com/titsuki/mecab/releases/download/0.996/mecab-ipadic-2.7.0-20070801.tar.gz';
         my $archive-file = "mecab-ipadic-2.7.0-20070801.tar.gz".IO.e
         ?? "mecab-ipadic-2.7.0-20070801.tar.gz"
         !! $fetcher.fetch(Candidate.new(:$uri), "mecab-ipadic-2.7.0-20070801.tar.gz");
